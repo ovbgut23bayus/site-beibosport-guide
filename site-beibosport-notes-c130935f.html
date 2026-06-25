@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>贝博体育 · 运动与活力的交汇点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f4f8fb;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1b2f3a;
+            line-height: 1.7;
+            padding: 0 1rem 2rem;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* 主色调：蓝绿调 */
+        :root {
+            --primary-900: #0b2e3b;
+            --primary-700: #145e6b;
+            --primary-500: #2b8d9e;
+            --primary-300: #6ebdc9;
+            --primary-100: #cbe7ed;
+            --accent-teal: #36a2b0;
+            --soft-white: #f9fdfe;
+            --card-shadow: 0 4px 18px rgba(0, 40, 50, 0.06);
+            --radius: 18px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 3.2rem 0 2.2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(145deg, #0b4b56 0%, #1f7c8c 70%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 660px;
+            margin: 0 auto 1.8rem;
+            color: #2c4d59;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #d9f0f3;
+            color: #11515f;
+            border-radius: 40px;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: inset 0 0 0 1px rgba(43, 141, 158, 0.15);
+            margin-bottom: 0.6rem;
+        }
+
+        /* ===== 网格卡片（优势区 + 说明区） ===== */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #08323e;
+            margin: 2.8rem 0 1.8rem;
+            position: relative;
+            padding-left: 0.6rem;
+            border-left: 5px solid var(--primary-500);
+        }
+
+        .grid-card {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.6rem;
+        }
+
+        .card {
+            background: var(--soft-white);
+            border-radius: var(--radius);
+            padding: 1.6rem 1.3rem;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(107, 179, 194, 0.15);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(14, 80, 94, 0.08);
+            border-color: var(--primary-300);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 550;
+            color: #124551;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3::before {
+            content: "●";
+            color: var(--primary-500);
+            font-size: 1.3rem;
+            margin-right: 0.2rem;
+        }
+
+        .card p {
+            color: #2a4b56;
+            font-size: 0.97rem;
+        }
+
+        .card .icon-em {
+            display: inline-block;
+            font-size: 1.5rem;
+            margin-right: 0.2rem;
+            vertical-align: middle;
+        }
+
+        /* 说明区 —— 叙述性段落 + 混合卡片 */
+        .narrative-block {
+            background: #e5f2f5;
+            border-radius: 22px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0;
+            box-shadow: inset 0 0 0 1px rgba(43, 141, 158, 0.08);
+        }
+
+        .narrative-block p {
+            font-size: 1.06rem;
+            margin-bottom: 1.2rem;
+            color: #163b44;
+        }
+
+        .narrative-block .inset-link {
+            background: white;
+            border-radius: 48px;
+            padding: 0.1rem 0.3rem 0.1rem 0.5rem;
+            display: inline-block;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+        }
+
+        .narrative-block a {
+            color: #0f5f6e;
+            font-weight: 550;
+            text-decoration: none;
+            border-bottom: 2px solid var(--primary-300);
+            transition: border-color 0.15s;
+        }
+
+        .narrative-block a:hover {
+            border-bottom-color: #0d4753;
+        }
+
+        .narrative-block .highlight {
+            background: #c2dee5;
+            padding: 0.1rem 0.6rem;
+            border-radius: 12px;
+            font-weight: 450;
+        }
+
+        /* ===== FAQ 摘要 ===== */
+        .faq-summary {
+            margin: 3rem 0 2.2rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 16px;
+            padding: 1.1rem 1.4rem;
+            margin-bottom: 0.8rem;
+            box-shadow: 0 2px 8px rgba(0, 30, 40, 0.03);
+            border-left: 4px solid var(--primary-300);
+        }
+
+        .faq-item strong {
+            color: #0c4452;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 1.04rem;
+        }
+
+        .faq-item p {
+            color: #2b4d5a;
+            font-size: 0.96rem;
+            margin: 0;
+        }
+
+        /* ===== 底部链接 ===== */
+        .footer-links {
+            margin: 2.5rem 0 1.2rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #cae0e5;
+            text-align: center;
+        }
+
+        .footer-links a {
+            color: #096473;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.1s;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #0b6b7a;
+        }
+
+        .footer-links .nav-item {
+            display: inline-block;
+            margin: 0.3rem 0.8rem;
+        }
+
+        .footer-note {
+            margin-top: 1.2rem;
+            font-size: 0.85rem;
+            color: #597782;
+        }
+
+        /* ===== 移动端微调 ===== */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .narrative-block {
+                padding: 1.2rem 1.2rem;
+            }
+
+            .grid-card {
+                gap: 1rem;
+            }
+
+            .card {
+                padding: 1.2rem;
+            }
+
+            .faq-item {
+                padding: 1rem 1rem;
+            }
+        }
+
+        /* 小点缀 */
+        .dot-divider {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--primary-300);
+            border-radius: 50%;
+            margin: 0 0.45rem;
+            vertical-align: middle;
+        }
+
+        .small-note {
+            color: #587a85;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- HERO 区 -->
+    <header class="hero">
+        <span class="hero-tag">运动 · 节奏 · 日常</span>
+        <h1>贝博体育</h1>
+        <p>从绿茵场到山脊线，从晨间泳池到深夜跑道——运动不止是竞技，更是一种内在的叙述。</p>
+        <div class="small-note" style="margin-top: 0.2rem;">—— 让身体对话，让活力流动 ——</div>
+    </header>
+
+    <!-- 优势区：网格卡片 -->
+    <h2 class="section-title">源于自然的运动节奏</h2>
+    <div class="grid-card">
+        <div class="card">
+            <h3>⛰️ 场景融合</h3>
+            <p>城市路跑、野外徒步、泳池间歇——将不同场景的运动逻辑揉合，找到属于自己的呼吸节拍。</p>
+        </div>
+        <div class="card">
+            <h3>🧘 低阈恢复</h3>
+            <p>重视运动后的拉伸与心率的自然回落，不盲目追逐极限，让身体在适应中稳步提升。</p>
+        </div>
+        <div class="card">
+            <h3>📊 节奏记录</h3>
+            <p>用简单可回溯的方式记录每次运动感受，而非堆砌数字。数据是工具，体验才是核心。</p>
+        </div>
+        <div class="card">
+            <h3>🌱 社群土壤</h3>
+            <p>不追求喧嚣的打卡排名，而是营造一个愿意分享运动日常与微小进步的安静社区。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：段落+嵌入式链接+卡片亮点 -->
+    <div class="narrative-block">
+        <p>
+            <span class="highlight">贝博体育</span> 所倡导的运动观念，更接近一种“持续而温和的探索”。 
+            很多人把运动看作对抗或任务，而我更愿意把它理解为一种与身体重新熟络的过程。 
+            不论你是在清晨的公园里慢跑三公里，还是在周末尝试一次越野骑行， 
+            重要的不是配速或距离，而是你能否在运动过程中感受到某种流动的状态。
+        </p>
+        <p>
+            在 <a href="https://site-beibosport.com">贝博体育</a> 的页面里，你会发现许多围绕“节奏”展开的讨论： 
+            如何通过呼吸调整运动强度，怎样在忙碌工作日里安插一段15分钟的有效活动， 
+            以及不同季节的运动偏好。这里没有千篇一律的“一周训练计划”， 
+            而是更像一份运动日常的灵感笔记。
+        </p>
+        <p>
+            <span class="dot-divider"></span> 如果你也认同运动应当回归到个人感受与自然节律，或许可以找个安静的片刻， 
+            点开 <span class="inset-link"><a href="https://site-beibosport.com">贝博体育</a></span> 浏览那些关于恢复、呼吸与场景化训练的短文。 
+            不需要注册，也无需留下任何信息，纯粹地阅读与感受。
+        </p>
+    </div>
+
+    <!-- 再一个卡片式亮点（差异化） -->
+    <div style="margin: 1.8rem 0 2rem;">
+        <div class="grid-card">
+            <div class="card" style="background: #e0f1f4;">
+                <h3>🎯 轻量切入点</h3>
+                <p>新手可以从“5分钟晨间激活”开始，老手也有“长距离后的恢复策略”——每个阶段都有适合的节奏。</p>
+            </div>
+            <div class="card" style="background: #e0f1f4;">
+                <h3>📖 叙事型内容</h3>
+                <p>用故事和场景传递经验，而非生硬的动作拆解。运动不应该是冷冰冰的指令集合。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h2 class="section-title" style="margin-top: 0;">常见问题 · 摘要</h2>
+        <div class="faq-item">
+            <strong>❔ 贝博体育适合完全零基础的人吗？</strong>
+            <p>是的。网站内容从最基础的体态觉察、呼吸练习开始，大部分内容不依赖器械或特殊场地。你可以按自己的节奏慢慢探索。</p>
+        </div>
+        <div class="faq-item">
+            <strong>❔ 是否有收费内容或强制注册？</strong>
+            <p>目前所有文章与分享均免费阅读，无需注册，也没有隐藏付费模块。保持开放是社区一直以来的习惯。</p>
+        </div>
+        <div class="faq-item">
+            <strong>❔ 多久更新一次内容？</strong>
+            <p>每周大约有2-3篇新内容，集中在运动随笔、场景化训练思路、以及小范围的运动实验分享。没有推送提醒，你可以随时回来看。</p>
+        </div>
+        <div style="margin-top: 0.6rem; font-size: 0.95rem; color: #2d5d69; background: #e1f0f3; border-radius: 40px; padding: 0.5rem 1.2rem; display: inline-block;">
+            📬 更多 FAQ 可直接浏览 <a href="https://site-beibosport.com" style="color: #0b5563; text-decoration: underline; text-underline-offset: 3px;">贝博体育</a> 内的对应板块
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <footer class="footer-links">
+        <div>
+            <span class="nav-item"><a href="https://site-beibosport.com">贝博体育</a></span>
+            <span class="nav-item" style="color: #7b9ca8;">·</span>
+            <span class="nav-item"><a href="https://site-beibosport.com" style="font-weight: 400;">贝博体育</a></span>
+            <span class="nav-item" style="color: #7b9ca8;">·</span>
+            <span class="nav-item"><a href="https://site-beibosport.com" style="font-weight: 400;">贝博体育</a></span>
+        </div>
+        <div class="footer-note">
+            — 运动如呼吸，不必刻意，自有节奏 —
+        </div>
+    </footer>
+
+</div>
+</body>
+</html>
